@@ -10,8 +10,11 @@ function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
+      // document.body.style.backgroundColor = "#343a40";
+      document.body.style.backgroundColor = "#042743";
     } else {
       setMode("light");
+      document.body.style.backgroundColor = "white";
     }
   };
 
@@ -28,7 +31,7 @@ function App() {
       />
       <div className="container my-3">
         {/* BootStrap Class */}
-        <TextForm title="Enter the text to analyze below" />
+        <TextForm title="Enter the text to analyze below" mode={mode}/>
         {/* <About /> */}
       </div>
     </div>

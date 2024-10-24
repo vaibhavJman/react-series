@@ -29,39 +29,22 @@ function TextForm(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{color: props.mode === "dark" ? "white" : "black"}}>
         <h1>{props.title}</h1>
         <div className="mb-3">
-          <textarea
-            className="form-control"
-            value={text}
-            onChange={handleOnChange}
-            id="myBox"
-            rows="8"
-          ></textarea>
+          <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{backgroundColor: props.mode === "dark" ? "#343a40" : "white", color:  props.mode === "dark" ? "white" : "black"}}></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>
-          Convert to uppercase
-        </button>
-        <button className="btn btn-primary mx-2" onClick={handleLowerClick}>
-          Convert to Lowercase
-        </button>
-        <button className="btn btn-primary " onClick={handleClearText}>
-          Clear Text
-        </button>
+        <button className="btn btn-primary" onClick={handleUpClick}>Convert to uppercase</button>
+        <button className="btn btn-primary mx-2" onClick={handleLowerClick}> Convert to Lowercase</button>
+        <button className="btn btn-primary " onClick={handleClearText}>Clear Text</button>
       </div>
 
-      <div className="container my-3">
+      <div className="container my-3" style={{color: props.mode === "dark" ? "white" : "black"}}>
         <h2>Your Text Summary</h2>
-        <p>
-          <b>{text.split(" ").length} </b> words, <b> {text.length} </b>{" "}
-          characters
-        </p>
-        <p>
-          <b>{0.008 * text.split(" ").length}</b> Minutes read.
-        </p>
+        <p> <b>{text.split(" ").length} </b> words, <b> {text.length} </b>characters</p>
+        <p> <b>{0.008 * text.split(" ").length}</b> Minutes read. </p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p> {text.length > 0? text : "Enter something in the above textbox to preview."} </p>
       </div>
     </>
   );
