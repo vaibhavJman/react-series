@@ -1,15 +1,31 @@
+import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar.jsx";
 import TextForm from "./components/TextForm.jsx";
 // import About from "./components/About.jsx";
 
 function App() {
+  const [mode, setMode] = useState("light");
+
+  const toggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+  };
+
   return (
     <div>
       {/* use default props -- depreciated */}
       {/* <Navbar />      */}
 
-      <Navbar title="TextUtils" about="about" />
+      <Navbar
+        title="TextUtils"
+        about="about"
+        mode={mode}
+        toggleMode={toggleMode}
+      />
       <div className="container my-3">
         {/* BootStrap Class */}
         <TextForm title="Enter the text to analyze below" />
